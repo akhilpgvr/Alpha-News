@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// import { defineConfig } from 'vite'
+// import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 // export default defineConfig({
@@ -7,8 +7,17 @@ import react from '@vitejs/plugin-react'
 // })
 
 // vite.config.js
-export default {
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
   server: {
-    allowedHosts: ['alpha-news.onrender.com']
+    port: 3000,
+    allowedHosts: 'all' // Allow all hosts for deployment
+  },
+  build: {
+    outDir: 'dist'
   }
-}
+});
+
